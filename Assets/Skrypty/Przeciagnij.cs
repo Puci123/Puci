@@ -12,16 +12,20 @@ public class Przeciagnij : MonoBehaviour {
 
     public void PowrocNaStart()
     {
-        rt.anchoredPosition = startPos;
+        GetComponent<Transform>().parent = GameObject.Find("Image").GetComponent<Transform>();
     }
 
     public void Przeciagany()
     {
         przeciagany = true;
+        transform.parent = GameObject.Find("Canvas").GetComponent<Transform>();
+
     }
     public void Upuszczony()
     {
         przeciagany = false;
+        print(transform.parent);
+
 
         Vector2 aPos = rt.anchoredPosition;
         float minOdleglosc = 99999.0f;
@@ -37,13 +41,17 @@ public class Przeciagnij : MonoBehaviour {
             {
                 minOdleglosc = odleglosc;
                 rzecz = item;
-            }
+            }  
         }
-        
-        if(minOdleglosc <= 100f)
+
+        if (minOdleglosc <= 100f)
         {
+            print("Jestem tu");
             rzecz.GetComponent<Upusc>().Dodaj(gameObject.GetComponent<Przeciagnij>());
         }
+        else
+            GetComponent<Transform>().parent = GameObject.Find("Image").GetComponent<Transform>();
+
     }
- 
+
 }
