@@ -19,12 +19,14 @@ public class Przeciagnij : MonoBehaviour {
     {
         przeciagany = true;
         transform.parent = GameObject.Find("Canvas").GetComponent<Transform>();
+        GetComponent<CanvasGroup>().blocksRaycasts = false;
 
     }
     public void Upuszczony()
     {
         przeciagany = false;
         print(transform.parent);
+        GetComponent<CanvasGroup>().blocksRaycasts = true;
 
 
         Vector2 aPos = rt.anchoredPosition;

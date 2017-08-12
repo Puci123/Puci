@@ -88,16 +88,18 @@
     <Compile Include="Assets\Skrypty\Karty\Karta.cs" />
     <Compile Include="Assets\Skrypty\Karty\Obrona.cs" />
     <Compile Include="Assets\Skrypty\Karty\Test.cs" />
+    <Compile Include="Assets\Skrypty\LepszePrzciongnij.cs" />
+    <Compile Include="Assets\Skrypty\LepszeUpusc.cs" />
     <Compile Include="Assets\Skrypty\Nie uzywane\Drag.cs" />
     <Compile Include="Assets\Skrypty\Nie uzywane\Drop.cs" />
+    <Compile Include="Assets\Skrypty\Nie uzywane\Przeciagnij.cs" />
+    <Compile Include="Assets\Skrypty\Nie uzywane\Ręka.cs" />
     <Compile Include="Assets\Skrypty\Nie uzywane\Siatka.cs" />
+    <Compile Include="Assets\Skrypty\Nie uzywane\Upusc.cs" />
     <Compile Include="Assets\Skrypty\Nie uzywane\Wenzel.cs" />
     <Compile Include="Assets\Skrypty\Nie uzywane\WyszkiwaczSciezek.cs" />
-    <Compile Include="Assets\Skrypty\Przeciagnij.cs" />
-    <Compile Include="Assets\Skrypty\Ręka.cs" />
     <Compile Include="Assets\Skrypty\Sciezka.cs" />
     <Compile Include="Assets\Skrypty\Talia.cs" />
-    <Compile Include="Assets\Skrypty\Upusc.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
