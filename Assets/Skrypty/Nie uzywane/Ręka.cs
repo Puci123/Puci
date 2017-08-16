@@ -5,22 +5,18 @@ using UnityEngine;
 public class Ręka : MonoBehaviour {
 
     private Transform renka;
-    public GameObject[] karty;
+   // public GameObject[] karty;
 
 
     private void Start()
     {
         renka = GetComponent<Transform>();
-        Dobierz();
+        
     }
-
-
-    void Dobierz()
+    public void DobierzStart(Karta karta)
     {
-        foreach (var item in karty)
-        {
-            item.GetComponent<Transform>().parent = renka.transform;
-        }  
+         karta.GetComponent<Transform>().parent = renka.transform;
+        //karta.GetComponent<Transform>().SetParent(renka.transform);
     }
    
    

@@ -4,24 +4,10 @@ using UnityEngine;
 
 public class Karta : LepszePrzciongnij {
 
-	
-	void Start () {
-       // rt = GetComponent<RectTransform>();
-       // startPos = rt.anchoredPosition;
-    }
 
-
-    void Update()
+     public virtual string CzaryMary()
     {
-      //  if (przeciagany)
-      //  {
-      //      rt.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
-       // }
-    }
-
-     public virtual void CzaryMary()
-    {
-        print("Robię czary mary");
+        return "Robię czary mary";
     }
 
 }
