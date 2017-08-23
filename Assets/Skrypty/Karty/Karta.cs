@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Karta : LepszePrzciongnij {
+public class Karta : Przeciagnij {
 
 
      public virtual string CzaryMary()
