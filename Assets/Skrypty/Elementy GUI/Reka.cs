@@ -7,14 +7,14 @@ public class Reka : MonoBehaviour {
     private Transform reka;
 
 
-    private void Start()
+    private void Awake()
     {
         reka = GetComponent<Transform>();
         
     }
-    public void Dobierz(Karta karta)
+    public void Dobierz(Transform karta)
     {
-         karta.GetComponent<Transform>().parent = reka.transform;
+         karta.parent = reka.transform;
     }
    
    

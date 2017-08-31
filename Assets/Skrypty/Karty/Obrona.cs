@@ -14,10 +14,9 @@ public class Obrona : Karta {
 	}
 
     override
-   public string CzaryMary()
+   public void CzaryMary()
     {
         print("BRONIĘ SIĘ");
-        return string.Empty;
 
     }
 }

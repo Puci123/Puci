@@ -5,9 +5,9 @@ using UnityEngine;
 public class Karta : Przeciagnij {
 
 
-     public virtual string CzaryMary()
+     public virtual void CzaryMary()
     {
-        return "Robię czary mary";
+        print("Czary Mary");
     }
 
 }

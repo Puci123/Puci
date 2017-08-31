@@ -8,14 +8,35 @@ public class StworzTalie : MonoBehaviour {
     public Transform tranObrona;
     public Transform tranRuch;
     public Transform tranTalia;
+    public Reka reka;
+    private Queue<Transform> talia = new Queue<Transform>();
 
     void Start () {
-		
+        Zmienne.talia = new Zmienne.Typy[10];
+        for (int i = 0; i < 10; i++)
+        {
+            Zmienne.talia[i] = Zmienne.Typy.atak;
+        }
+        Tasuj(Zmienne.talia);
+        Stworz();
+        Dobierz(3);
 	}
 	
 	void Update () {
 		
 	}
+    void Tasuj(Zmienne.Typy[] _talia)
+    {
+        Zmienne.Typy temp;
+        int k = 0;
+        for (int i = 0; i < _talia.Length / 2; i++)
+        {
+            temp = _talia[i];
+            k = Random.Range(i, _talia.Length);
+            _talia[i] = _talia[k];
+            _talia[k] = temp;
+        }
+    }
 
     void Stworz()
     {
@@ -35,8 +56,19 @@ public class StworzTalie : MonoBehaviour {
             {
                 temp = tranRuch;
             }
-            Instantiate(temp, tranTalia);
+            temp = Instantiate(temp, tranTalia);
+            talia.Enqueue(temp);  
         }
         
+    }
+
+    void Dobierz(int ile)
+    {
+        for (int i = 0; i < ile; i++)
+        {
+            Transform kar = talia.Peek();
+            talia.Dequeue();
+            reka.Dobierz(kar);
+        }
     }
 }

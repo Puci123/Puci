@@ -12,9 +12,8 @@ public class Atak : Karta {
 		
 	}
     override
-    public string CzaryMary()
+    public void CzaryMary()
     {
         print ("ATAKJE");
-        return string.Empty;
     }
 }
