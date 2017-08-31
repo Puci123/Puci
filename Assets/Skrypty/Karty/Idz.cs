@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Idź : Karta {
+public class Idz : Karta {
 
 
     override
         public void CzaryMary()
     {
-
+        
     }
 }
