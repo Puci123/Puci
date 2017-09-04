@@ -86,10 +86,10 @@
     <Compile Include="Assets\Save\AI_Temp\Unit.cs" />
     <Compile Include="Assets\Skrypty\Elementy GUI\Reka.cs" />
     <Compile Include="Assets\Skrypty\Karty\Atak.cs" />
+    <Compile Include="Assets\Skrypty\Karty\Idz.cs" />
     <Compile Include="Assets\Skrypty\Karty\Karta.cs" />
     <Compile Include="Assets\Skrypty\Karty\Obrona.cs" />
     <Compile Include="Assets\Skrypty\Karty\StworzTalie.cs" />
-    <Compile Include="Assets\Skrypty\Karty\Talia.cs" />
     <Compile Include="Assets\Skrypty\Przeciagnij i upusc\Przeciagnij.cs" />
     <Compile Include="Assets\Skrypty\Przeciagnij i upusc\Upusc.cs" />
     <Compile Include="Assets\Skrypty\Zmienne.cs" />

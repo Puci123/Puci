@@ -8,6 +8,7 @@ public class StworzTalie : MonoBehaviour {
     public Transform tranObrona;
     public Transform tranRuch;
     public Transform tranTalia;
+    public Transform rewers;
     public Reka reka;
     private Queue<Transform> talia = new Queue<Transform>();
 
@@ -57,9 +58,10 @@ public class StworzTalie : MonoBehaviour {
                 temp = tranRuch;
             }
             temp = Instantiate(temp, tranTalia);
+            temp.gameObject.GetComponent<Przeciagnij>().CzyJestWTali(true);
             talia.Enqueue(temp);  
         }
-        
+        Instantiate(rewers, tranTalia);
     }
 
     void Dobierz(int ile)
@@ -67,6 +69,7 @@ public class StworzTalie : MonoBehaviour {
         for (int i = 0; i < ile; i++)
         {
             Transform kar = talia.Peek();
+            kar.gameObject.GetComponent<Karta>().CzyJestWTali(false);
             talia.Dequeue();
             reka.Dobierz(kar);
         }

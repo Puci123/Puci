@@ -17,6 +17,7 @@ public class Upusc : MonoBehaviour, IDropHandler
         if (transform.childCount == 0)
         {
             eventData.pointerDrag.GetComponent<Przeciagnij>().ZmienRodzica(GetComponent<Transform>());
+            eventData.pointerDrag.GetComponent<Karta>().CzaryMary();  //tlko  do testów
             rzecz = eventData.pointerDrag;
         }
         else if (transform.childCount > 0)
@@ -24,8 +25,10 @@ public class Upusc : MonoBehaviour, IDropHandler
             rzecz.transform.parent = reka;
             rzecz = null;
             eventData.pointerDrag.GetComponent<Przeciagnij>().ZmienRodzica(GetComponent<Transform>());
+            eventData.pointerDrag.GetComponent<Karta>().CzaryMary(); //tlko  do testów
             rzecz = eventData.pointerDrag;
         }
 
     }
+
 }

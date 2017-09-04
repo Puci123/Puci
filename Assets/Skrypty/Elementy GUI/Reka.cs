@@ -14,7 +14,7 @@ public class Reka : MonoBehaviour {
     }
     public void Dobierz(Transform karta)
     {
-         karta.parent = reka.transform;
+        karta.parent = reka.transform;
     }
    
    

@@ -39,4 +39,9 @@ public class Przeciagnij : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
         czyJestNaRece = false;
         GetComponent<Transform>().parent = t;
     }
+
+    public void CzyJestWTali(bool czyJestWtali)
+    {
+        GetComponent<CanvasGroup>().blocksRaycasts = !czyJestWtali;
+    }
 }
