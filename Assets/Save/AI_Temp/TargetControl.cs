@@ -3,9 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TargetControl : MonoBehaviour {
-    Vector3 pos;
+
+    public bool mozeszIsc = true;
+
+   
 
     void Update()
+    {
+        if (mozeszIsc)
+            SprawdzWejscia();
+    }
+
+    void SprawdzWejscia()
     {
         // Komputer
         if (Input.GetMouseButtonDown(0))
@@ -14,7 +23,7 @@ public class TargetControl : MonoBehaviour {
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit))
             {
-                if(hit.collider.CompareTag("hittable"))
+                if (hit.collider.CompareTag("hittable"))
                 {
                     Debug.Log(hit.point);
                     gameObject.GetComponent<Transform>().position = hit.point;

@@ -9,6 +9,11 @@ public class Unit : MonoBehaviour {
     Vector3[] path;
     int index;
 
+    //void Awake()
+    //{
+    //    target.position = transform.position;     
+    //}
+
     void Update()
     {
         Vector3 targetPosNew = target.position;

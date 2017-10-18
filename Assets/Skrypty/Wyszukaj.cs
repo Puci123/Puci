@@ -1,28 +1,16 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class Pathfinding : MonoBehaviour {
-    PathManager manager;
+public class Wyszukaj : MonoBehaviour {
+
     Grid grid;
 
     void Awake()
     {
         grid = GetComponent<Grid>(); // oba skrypty są na obiekcie A*
-        manager = GetComponent<PathManager>();
     }
 
-    public void Begin(Vector3 startPos, Vector3 endPos)
-    {
-        StartCoroutine(FindPath(startPos, endPos));
-    }
-
-    /*
-     * Metoda wyszukuję ścieżkę pomiędzy dwoma punktami w world space
-     * Tu wykonujemy cały algorytm A*
-     */
-    IEnumerator FindPath(Vector3 startPos, Vector3 endPos)
+    Vector3[] FindPath(Vector3 startPos, Vector3 endPos)
     {
         Node start = grid.NodeFromWorldPoint(startPos); // Węzeł startowy
         Node target = grid.NodeFromWorldPoint(endPos);  // Węzeł końcowy, szukamy ścieżki pomiędzy tymi dwoma punktami
@@ -82,10 +70,10 @@ public class Pathfinding : MonoBehaviour {
                 }
             }
         }
-        yield return null;
-        if(succeded)
-            waypoints = RetracePath(start, target);
-        manager.Finished(waypoints, succeded);
+        if (succeded)
+            return RetracePath(start, target);
+        else
+            return null;
     }
     /*
      * Metoda słóży do prześledzenia ścieżki. Wywołujemy ją w momencie gdy węzeł aktualny jest równy końcowemu
@@ -97,22 +85,19 @@ public class Pathfinding : MonoBehaviour {
     {
         List<Node> path = new List<Node>();
         Node current = target; // będziemy śledzić ścieżkę od końca
-        while(current != start)
+        while (current != start)
         {
             path.Add(current);
             current = current.parent;
         }
 
         Vector3[] simplifiedPath = SimplifyPath(path);
-        Array.Reverse(simplifiedPath);  // żeby uzyskać poprawną kolejność scieżki
+        System.Array.Reverse(simplifiedPath);  // żeby uzyskać poprawną kolejność scieżki
 
         return simplifiedPath;
     }
 
-    /*
-     * Metoda zostawia węzły które zmieniają kierunek by bez sensu nie trzymać wszystkich punktów
-     */ 
-    Vector3[] SimplifyPath (List<Node> path)
+    Vector3[] SimplifyPath(List<Node> path)
     {
         List<Vector3> waypoints = new List<Vector3>();
         Vector2 directionOld = Vector2.zero;
@@ -120,7 +105,7 @@ public class Pathfinding : MonoBehaviour {
         for (int i = 1; i < path.Count; i++)
         {
             Vector2 directionNew = new Vector2(path[i - 1].x - path[i].x, path[i - 1].y - path[i].y);
-            if(directionNew != directionOld) // to nastąpiła zmiana kierunku
+            if (directionNew != directionOld) // to nastąpiła zmiana kierunku
             {
                 waypoints.Add(path[i].pos);
             }

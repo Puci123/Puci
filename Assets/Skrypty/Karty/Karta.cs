@@ -10,4 +10,9 @@ public class Karta : Przeciagnij {
         print("Czary Mary");
     }
 
+    public virtual void Zniszcz()
+    {
+        print("Nisczę");
+    }
+
 }

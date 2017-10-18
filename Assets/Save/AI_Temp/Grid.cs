@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Grid : MonoBehaviour {
 
-    Node[,] grid;                // siatka węzłów, na niej działa algorytm
+    public Node[,] grid;                // siatka węzłów, na niej działa algorytm
     public LayerMask unwalkable; // layer po którym nie można się poruszać
     public float radius;         // promień węzła
     public Vector2 size;         // wielkość siatki
 
     private float diameter; // średnica 
-    private int nodesX, nodesY; // liczba węzłów na osiach
+    public int nodesX, nodesY; // liczba węzłów na osiach
     public bool displayGizmos = true; // bool slóżący do wyswietlania siatki
 
     /*
