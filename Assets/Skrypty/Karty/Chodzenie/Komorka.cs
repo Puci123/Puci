@@ -18,7 +18,6 @@ public class Komorka : MonoBehaviour {
     public void Przyjmij(Idz _idz)
     {
         idz = _idz;
-        print("Przyjmuję");
     }
 
     private void OnMouseDown()

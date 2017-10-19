@@ -9,14 +9,13 @@ public class Reka : MonoBehaviour {
 
     private void Awake()
     {
-        reka = GetComponent<Transform>();
-        
+        reka = GetComponent<Transform>();    
     }
+
     public void Dobierz(Transform karta)
     {
         karta.parent = reka.transform;
     }
-   
-   
+
 
 }

@@ -3,9 +3,15 @@ using UnityEngine.EventSystems;
 
 public class Przeciagnij : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    private bool czyJestNaRece = true;
+    [HideInInspector]
+    public bool siatkaIstneje = false;
+    private bool czyJestNaRece = false;
+  
     private Transform reka;
     private Transform gui;
+
+
+   
 
     private void Start()
     {
@@ -17,6 +23,12 @@ public class Przeciagnij : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     {
         GetComponent<CanvasGroup>().blocksRaycasts = false;
         transform.parent = gui;
+
+        if(transform.parent != reka && siatkaIstneje) //sprawdz czy karta jest aktualnie uzywana 
+        {
+            GetComponent<Karta>().Zniszcz();
+            Zmienne.wyswietlam = false; 
+        }
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -32,6 +44,7 @@ public class Przeciagnij : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
             transform.parent = reka;
         }
         czyJestNaRece = true;
+
     }
 
     public void ZmienRodzica(Transform t)

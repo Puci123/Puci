@@ -11,9 +11,13 @@ public class Idz : Karta {
     private Transform wskaznik;
     private Transform rodzic;
 
+   
+
+
+
     void Generuj()
     {
-
+        GetComponent<Przeciagnij>().siatkaIstneje = true;
         wskaznik = GameObject.Find("Wskaznik").GetComponent<Transform>();
         rodzic = Instantiate(pusty);
         Transform temp;
@@ -44,6 +48,7 @@ public class Idz : Karta {
     {
         Destroy(rodzic.gameObject);
         Zmienne.wyswietlam = false;
+        GetComponent<Przeciagnij>().siatkaIstneje = false;
 
     }
 
