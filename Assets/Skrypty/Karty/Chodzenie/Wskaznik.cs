@@ -6,6 +6,16 @@ public class Wskaznik : MonoBehaviour {
 
 	void Start () {
 
-        transform.position = GameObject.FindGameObjectWithTag("Player").transform.position;
+        DoGracza();  
 	}
+
+    void DoGracza()
+    {
+        transform.position = GameObject.FindGameObjectWithTag("Player").transform.position;
+    }
+
+    public void Przestaw(Vector3 pos)
+    {
+        transform.position = pos;
+    }
 }
