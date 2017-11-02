@@ -4,40 +4,35 @@ using UnityEngine.EventSystems;
 public class Upusc : MonoBehaviour, IDropHandler
 {
     public Transform reka;
-    public GameObject rzecz = null;
+    public GameObject[] rzecz;
+    public int rozmoiar;
     
 
     private void Start()
     {
        reka = GameObject.FindGameObjectWithTag("Reka").GetComponent<Transform>();
-
+        rzecz = new GameObject[rozmoiar];
     }
 
 
     public void OnDrop(PointerEventData eventData)
     {
-       
-            if (transform.childCount == 0)
+      
+         if (!Zmienne.wyswietlam)
+         {
+            eventData.pointerDrag.GetComponent<Przeciagnij>().ZmienRodzica(GetComponent<Transform>());
+            eventData.pointerDrag.GetComponent<Przeciagnij>().jestWupuszeniu = true;
+            eventData.pointerDrag.GetComponent<Karta>().CzaryMary();
+            for (int i = 0; i < rozmoiar; i++)
             {
-                if (!Zmienne.wyswietlam)
+                if (rzecz[i] == null)
                 {
-                     eventData.pointerDrag.GetComponent<Przeciagnij>().ZmienRodzica(GetComponent<Transform>());
-                     eventData.pointerDrag.GetComponent<Karta>().CzaryMary();
-                     rzecz = eventData.pointerDrag;
+                    rzecz[i] = eventData.pointerDrag.gameObject;
+                    break;
                 }
             }
-            else if (transform.childCount > 0)
-            {
-                rzecz.GetComponent<Karta>().Zniszcz();
-                rzecz.transform.parent = reka;
-                rzecz = null;
-                eventData.pointerDrag.GetComponent<Przeciagnij>().ZmienRodzica(GetComponent<Transform>());
-                eventData.pointerDrag.GetComponent<Karta>().CzaryMary();
-
-                rzecz = eventData.pointerDrag;
-
-            }
-            Zmienne.wyswietlam = true;
+         }
+        Zmienne.wyswietlam = true;
         
     }
 

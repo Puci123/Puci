@@ -5,7 +5,9 @@ public class Przeciagnij : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 {
     [HideInInspector]
     public bool siatkaIstneje = false;
-    private bool czyJestNaRece = false;
+    public bool jestWupuszeniu = false;
+
+    public int pozycja;
   
     private Transform reka;
     private Transform gui;
@@ -21,14 +23,11 @@ public class Przeciagnij : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        GetComponent<CanvasGroup>().blocksRaycasts = false;
-        transform.parent = gui;
-
-        if(transform.parent != reka && siatkaIstneje) //sprawdz czy karta jest aktualnie uzywana 
-        {
+        if (siatkaIstneje)
             GetComponent<Karta>().Zniszcz();
-            Zmienne.wyswietlam = false; 
-        }
+        GetComponent<CanvasGroup>().blocksRaycasts = false;
+        jestWupuszeniu = false;
+        ZmienRodzica(gui);
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -39,17 +38,12 @@ public class Przeciagnij : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     public void OnEndDrag(PointerEventData eventData)
     {
         GetComponent<CanvasGroup>().blocksRaycasts = true;
-        if (czyJestNaRece == true)
-        {
-            transform.parent = reka;
-        }
-        czyJestNaRece = true;
-
+        if (!jestWupuszeniu)
+            ZmienRodzica(reka);
     }
 
     public void ZmienRodzica(Transform t)
     {
-        czyJestNaRece = false;
         GetComponent<Transform>().parent = t;
     }
 
