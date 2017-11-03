@@ -86,10 +86,12 @@
     <Compile Include="Assets\Save\AI_Temp\Unit.cs" />
     <Compile Include="Assets\Skrypty\CameraControler.cs" />
     <Compile Include="Assets\Skrypty\Elementy GUI\Reka.cs" />
+    <Compile Include="Assets\Skrypty\GameControler.cs" />
     <Compile Include="Assets\Skrypty\GeratorMapy.cs" />
     <Compile Include="Assets\Skrypty\Karty\Atak.cs" />
     <Compile Include="Assets\Skrypty\Karty\Chodzenie\Idz.cs" />
     <Compile Include="Assets\Skrypty\Karty\Chodzenie\Komorka.cs" />
+    <Compile Include="Assets\Skrypty\Karty\Cmentarz.cs" />
     <Compile Include="Assets\Skrypty\Karty\Karta.cs" />
     <Compile Include="Assets\Skrypty\Karty\Obrona.cs" />
     <Compile Include="Assets\Skrypty\Karty\StworzTalie.cs" />

@@ -17,5 +17,4 @@ public class Reka : MonoBehaviour {
         karta.parent = reka.transform;
     }
 
-
 }

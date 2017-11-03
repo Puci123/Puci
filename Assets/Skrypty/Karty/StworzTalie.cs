@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class StworzTalie : MonoBehaviour {
 
+    public int ileKartNaStart;
+    public int kartyWTali;
+    public Cmentarz cmentarz;
+
     public Transform tranAtak;
     public Transform tranObrona;
     public Transform tranRuch;
@@ -19,8 +23,11 @@ public class StworzTalie : MonoBehaviour {
             Zmienne.talia[i] = Zmienne.Typy.atak;
         }
         Tasuj(Zmienne.talia);
+
+        kartyWTali = 10;
         Stworz();
-        Dobierz(3);
+        Dobierz(ileKartNaStart);
+
 	}
 	
 	void Update () {
@@ -64,14 +71,37 @@ public class StworzTalie : MonoBehaviour {
         Instantiate(rewers, tranTalia);
     }
 
-    void Dobierz(int ile)
+    public void Dobierz(int ile)
     {
+
+        if (kartyWTali <= 3)
+        {
+            cmentarz.Przekaz();
+        }
+
         for (int i = 0; i < ile; i++)
         {
             Transform kar = talia.Peek();
             kar.gameObject.GetComponent<Karta>().CzyJestWTali(false);
             talia.Dequeue();
             reka.Dobierz(kar);
+            kartyWTali--;
+        }  
+    }
+
+    public void WezKarty(Transform[] _karty)
+    {
+        
+        foreach (var item in _karty)
+        {
+            if (item != null)
+            {
+                item.gameObject.GetComponent<Karta>().CzyJestWTali(true);
+                item.transform.SetParent(tranTalia);
+                item.transform.position = tranTalia.position;
+                talia.Enqueue(item);
+                kartyWTali++;
+            }
         }
     }
 }

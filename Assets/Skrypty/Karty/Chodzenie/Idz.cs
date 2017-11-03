@@ -47,7 +47,7 @@ public class Idz : Karta {
 
     public void Przejdz(Vector3 meta)
     {
-        gracz.GetComponent<NavMeshAgent>().updateRotation = false;
+       // gracz.GetComponent<NavMeshAgent>().updateRotation = false;
         gracz.GetComponent<NavMeshAgent>().destination = meta;
         gameObject.GetComponent<CanvasGroup>().blocksRaycasts = false;
     }
