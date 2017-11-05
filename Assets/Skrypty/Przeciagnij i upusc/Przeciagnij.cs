@@ -40,6 +40,10 @@ public class Przeciagnij : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
         GetComponent<CanvasGroup>().blocksRaycasts = true;
         if (!jestWupuszeniu)
             ZmienRodzica(reka);
+        else
+            GetComponent<CanvasGroup>().blocksRaycasts = false;
+
+
     }
 
     public void ZmienRodzica(Transform t)

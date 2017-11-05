@@ -5,4 +5,5 @@ public static class Zmienne  {
     public static Typy[] talia;
 
     public static bool wyswietlam = false;
+    public static bool graczIdzie = false;
 }

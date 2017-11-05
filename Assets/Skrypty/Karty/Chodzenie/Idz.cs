@@ -9,12 +9,7 @@ public class Idz : Karta {
     public Transform komorka;
     public Transform pusty;
     public Transform gracz;
-
     private Transform rodzic;
-
-   
-
-
 
     void Generuj()
     {
@@ -64,6 +59,7 @@ public class Idz : Karta {
         public void CzaryMary()
     {
         Generuj();
+
     }
 
     override

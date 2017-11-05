@@ -8,6 +8,7 @@ public class Karta : Przeciagnij {
      public virtual void CzaryMary()
     {
         print("Czary Mary");
+        
     }
 
     public virtual void Zniszcz()
