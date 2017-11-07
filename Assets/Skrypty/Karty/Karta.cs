@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Karta : Przeciagnij {
 
+    public int koszt = 1;
 
      public virtual void CzaryMary()
     {

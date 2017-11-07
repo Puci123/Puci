@@ -5,15 +5,22 @@ using UnityEngine.UI;
 
 public class GameControler : MonoBehaviour {
 
-    public Text termoetr;
+    public int hp;
+    public int maxHp;
     public int punktyNagrzania;
     public int maxPunktyNagrzania;
+    public Text termoetr;
+    public Text hpText;
+    public Transform gui;
+    public Transform gameOverC;
     public Upusc upusc;
     public StworzTalie talia;
 
     private void Start()
     {
         termoetr.text = "" + punktyNagrzania + " / " + maxPunktyNagrzania;
+        hpText.text = "HP " + hp + " / " + maxHp;
+
     }
 
     public void Pas()
@@ -34,5 +41,23 @@ public class GameControler : MonoBehaviour {
     {
         punktyNagrzania += ile;
         termoetr.text = "" + punktyNagrzania + " / " + maxPunktyNagrzania;
+
+        if (punktyNagrzania > maxPunktyNagrzania)
+            KoniecGry();
+        
+    }
+
+    public void WyleczGracza()
+    {
+        if (hp < maxHp)
+            hp++;
+        hpText.text = "HP " + hp + " / " + maxHp;
+    }
+
+    void KoniecGry()
+    {
+        gui.gameObject.SetActive(false);
+        gameOverC.gameObject.SetActive(true);
+        Destroy(GameObject.FindGameObjectWithTag("Player"));
     }
 }

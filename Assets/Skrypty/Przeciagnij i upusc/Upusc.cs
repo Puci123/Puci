@@ -7,6 +7,7 @@ public class Upusc : MonoBehaviour, IDropHandler
     public Transform reka;
     public int rozmoiar;
     public Cmentarz cmentarz;
+    public GameControler control;
 
     private void Start()
     {
@@ -19,11 +20,12 @@ public class Upusc : MonoBehaviour, IDropHandler
       
          if (!Zmienne.wyswietlam)
          {
+            
             eventData.pointerDrag.GetComponent<Przeciagnij>().ZmienRodzica(GetComponent<Transform>());
             eventData.pointerDrag.GetComponent<Przeciagnij>().jestWupuszeniu = true;
             eventData.pointerDrag.GetComponent<Karta>().CzaryMary();
+            control.ZminenNagrzanie(eventData.pointerDrag.GetComponent<Karta>().koszt);
          }
-        Zmienne.wyswietlam = true;
         
     }
 

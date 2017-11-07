@@ -58,6 +58,7 @@ public class Idz : Karta {
     override
         public void CzaryMary()
     {
+        Zmienne.wyswietlam = true;
         Generuj();
 
     }

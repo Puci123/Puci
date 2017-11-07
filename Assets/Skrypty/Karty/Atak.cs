@@ -4,16 +4,21 @@ using UnityEngine;
 
 public class Atak : Karta {
 
-	void Start () {
-		
-	}
-	
-	void Update () {
-		
-	}
+    Transform player;
+    public Transform komorka;
+
     override
     public void CzaryMary()
     {
-        print ("ATAKJE");
+    
+    }
+
+    void Generuj()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+
+        }
+
     }
 }

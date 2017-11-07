@@ -93,7 +93,7 @@
     <Compile Include="Assets\Skrypty\Karty\Chodzenie\Komorka.cs" />
     <Compile Include="Assets\Skrypty\Karty\Cmentarz.cs" />
     <Compile Include="Assets\Skrypty\Karty\Karta.cs" />
-    <Compile Include="Assets\Skrypty\Karty\Obrona.cs" />
+    <Compile Include="Assets\Skrypty\Karty\Lecz.cs" />
     <Compile Include="Assets\Skrypty\Karty\StworzTalie.cs" />
     <Compile Include="Assets\Skrypty\PoszukajSciezki.cs" />
     <Compile Include="Assets\Skrypty\Przeciagnij i upusc\Przeciagnij.cs" />
