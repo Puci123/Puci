@@ -2,23 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Atak : Karta {
+public class Atak : KartaZeSiatka {
 
     Transform player;
-    public Transform komorka;
 
     override
     public void CzaryMary()
     {
-    
+        Generuj(GetComponent<Transform>());
     }
 
-    void Generuj()
-    {
-        for (int i = 0; i < 3; i++)
-        {
-
-        }
-
-    }
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Komorka : MonoBehaviour {
+public class Komorka : PodstawowaKomorka {
 
     public LayerMask nieChodliwy;
 
@@ -10,15 +10,16 @@ public class Komorka : MonoBehaviour {
 
     private void Start()
     {
-        if (Physics.CheckSphere(transform.position, transform.lossyScale.x / 2 - 0.1f, nieChodliwy))
+        if (Physics.CheckSphere(transform.position, transform.lossyScale.x / 2 - 0.05f, nieChodliwy) || transform.position == idz.gracz.position)
         {
             Destroy(gameObject);
         }
     }
 
-    public void Przyjmij(Idz _idz)
+    override
+    public void Przyjmij(Transform tran)
     {
-        idz = _idz;
+        idz = tran.gameObject.GetComponent<Idz>();
     }
 
     private void OnMouseDown()
