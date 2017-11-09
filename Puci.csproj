@@ -88,16 +88,20 @@
     <Compile Include="Assets\Skrypty\Elementy GUI\Reka.cs" />
     <Compile Include="Assets\Skrypty\GameControler.cs" />
     <Compile Include="Assets\Skrypty\GeratorMapy.cs" />
-    <Compile Include="Assets\Skrypty\Karty\Atak.cs" />
-    <Compile Include="Assets\Skrypty\Karty\Chodzenie\Idz.cs" />
-    <Compile Include="Assets\Skrypty\Karty\Chodzenie\Komorka.cs" />
     <Compile Include="Assets\Skrypty\Karty\Cmentarz.cs" />
     <Compile Include="Assets\Skrypty\Karty\Karta.cs" />
+    <Compile Include="Assets\Skrypty\Karty\Karty z siatką\Atakowanie\Atak.cs" />
+    <Compile Include="Assets\Skrypty\Karty\Karty z siatką\Atakowanie\KomorkaAtak.cs" />
+    <Compile Include="Assets\Skrypty\Karty\Karty z siatką\Chodzenie\Idz.cs" />
+    <Compile Include="Assets\Skrypty\Karty\Karty z siatką\Chodzenie\Komorka.cs" />
+    <Compile Include="Assets\Skrypty\Karty\Karty z siatką\KartaZeSiatka.cs" />
+    <Compile Include="Assets\Skrypty\Karty\Karty z siatką\PodstawowaKomorka.cs" />
     <Compile Include="Assets\Skrypty\Karty\Lecz.cs" />
     <Compile Include="Assets\Skrypty\Karty\StworzTalie.cs" />
     <Compile Include="Assets\Skrypty\PoszukajSciezki.cs" />
     <Compile Include="Assets\Skrypty\Przeciagnij i upusc\Przeciagnij.cs" />
     <Compile Include="Assets\Skrypty\Przeciagnij i upusc\Upusc.cs" />
+    <Compile Include="Assets\Skrypty\Przeciwnik.cs" />
     <Compile Include="Assets\Skrypty\Test\Enemy.cs" />
     <Compile Include="Assets\Skrypty\Zmienne.cs" />
   </ItemGroup>

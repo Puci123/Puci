@@ -5,6 +5,7 @@ using UnityEngine;
 public class Komorka : PodstawowaKomorka {
 
     public LayerMask nieChodliwy;
+    public LayerMask przeciwnik;
 
     private Idz idz;
 
@@ -13,6 +14,9 @@ public class Komorka : PodstawowaKomorka {
         if (Physics.CheckSphere(transform.position, transform.lossyScale.x / 2 - 0.05f, nieChodliwy) || transform.position == idz.gracz.position)
         {
             Destroy(gameObject);
+        }else if(Physics.CheckSphere(transform.position, transform.lossyScale.x / 2 - 0.05f, przeciwnik)){
+            Destroy(gameObject);
+
         }
     }
 
