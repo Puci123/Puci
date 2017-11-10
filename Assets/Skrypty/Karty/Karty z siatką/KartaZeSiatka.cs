@@ -12,7 +12,7 @@ public class KartaZeSiatka : Karta {
 
     public void Generuj(Transform karta)
     {
-        Zmienne.wyswietlam = true;
+       
         GetComponent<Przeciagnij>().siatkaIstneje = true;
         rodzic = Instantiate(pusty);
         gracz = GameObject.FindGameObjectWithTag("Player").transform;

@@ -10,6 +10,6 @@ public class Atak : KartaZeSiatka {
     public void CzaryMary()
     {
         Generuj(GetComponent<Transform>());
+     
     }
-
 }

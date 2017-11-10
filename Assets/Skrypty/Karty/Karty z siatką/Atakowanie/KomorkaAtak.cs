@@ -6,7 +6,6 @@ public class KomorkaAtak : PodstawowaKomorka {
 
     Transform tran_;
     public LayerMask enemy;
-    private bool jestWrog;
     private Transform other;
 
    
@@ -16,8 +15,14 @@ public class KomorkaAtak : PodstawowaKomorka {
         if (!Physics.CheckSphere(transform.position, transform.lossyScale.x / 2 - 0.1f, enemy))
         {
             Destroy(this.gameObject);
-        }else
-         ZnajdzPrzeciwnika();
+           
+        }
+        else
+        {
+           
+            ZnajdzPrzeciwnika();
+            Zmienne.wyswietlam = true;
+        }
         
     }
     private void OnMouseDown()
