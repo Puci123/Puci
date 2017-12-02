@@ -23,12 +23,12 @@ public class Przeciagnij : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        if (siatkaIstneje)
+         if (siatkaIstneje)
             GetComponent<Karta>().Zniszcz();
         GetComponent<CanvasGroup>().blocksRaycasts = false;
         jestWupuszeniu = false;
         ZmienRodzica(gui);
-    }
+     }
 
     public void OnDrag(PointerEventData eventData)
     {

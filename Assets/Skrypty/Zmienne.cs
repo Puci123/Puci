@@ -6,4 +6,5 @@ public static class Zmienne  {
 
     public static bool wyswietlam = false;
     public static bool graczIdzie = false;
+	public static bool turaPrzeciwnika = false;
 }

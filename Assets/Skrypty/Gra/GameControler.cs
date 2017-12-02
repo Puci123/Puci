@@ -34,6 +34,8 @@ public class GameControler : MonoBehaviour {
                 ZminenNagrzanie(-2);
             else
                 ZminenNagrzanie(-punktyNagrzania);
+
+			Zmienne.turaPrzeciwnika = !Zmienne.turaPrzeciwnika;
         }
     }
 
@@ -60,4 +62,6 @@ public class GameControler : MonoBehaviour {
         gameOverC.gameObject.SetActive(true);
         Destroy(GameObject.FindGameObjectWithTag("Player"));
     }
+
+
 }
