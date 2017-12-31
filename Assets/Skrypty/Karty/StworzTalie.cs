@@ -20,7 +20,12 @@ public class StworzTalie : MonoBehaviour {
         Zmienne.talia = new Zmienne.Typy[10];
         for (int i = 0; i < 10; i++)
         {
-			Zmienne.talia[i] = Zmienne.Typy.ruch;
+            if (i < 6)
+                Zmienne.talia[i] = Zmienne.Typy.ruch;
+            else if (i > 5 && i < 8)
+                Zmienne.talia[i] = Zmienne.Typy.atak;
+            else
+                Zmienne.talia[i] = Zmienne.Typy.obrona;
         }
         Tasuj(Zmienne.talia);
 

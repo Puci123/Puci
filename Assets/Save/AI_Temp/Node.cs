@@ -2,6 +2,8 @@
 
 public class Node {
     public bool walkable;
+    public enum Rodzaj {niechodliwy,chodliwy,przeciwnik,gracz};
+    public Rodzaj rodzaj;
     public Vector3 pos;
     public int x, y; // pozycja w siatce węzłów
     

@@ -63,6 +63,30 @@ public class Grid : MonoBehaviour {
                 grid[i, j] = new Node(walkable, pos, i, j);
             }
         }
+        //Ustaleni pozycji przeciwników
+        foreach (var item in GameObject.FindGameObjectsWithTag("Enemy"))
+        {
+            foreach (var item2 in grid)
+            {
+                if(item2.pos.x == item.transform.position.x && item2.pos.z == item.transform.position.z)
+                {
+                    print("Przeciwnik ma pozycję  : " + item2.pos);
+                    item2.rodzaj = Node.Rodzaj.przeciwnik;
+                }
+            }
+        }
+        //Ustaleni Pozycji gracza
+        Transform temp = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        foreach (var item in grid)
+        {
+            if(item.pos.x == temp.position.x && item.pos.z == temp.position.z)
+            {
+                print("Gracz ma pozycję : " + item.pos);
+                item.rodzaj = Node.Rodzaj.gracz;
+            }
+        }
+
+ 
     }
     
     public List<Node> Neighbours(Node node)

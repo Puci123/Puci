@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GeratorMapy : MonoBehaviour {
-
 	public bool mapaWygerowana = false;
 	public int rozmiarX, rozmiarY;
-	public int graczX, graczY;
-    public Transform komorka;
-    public Transform rodzic;
-	public enum pole{wolne,zajete,wrog,gracz};
+    public Vector3 startPos;
+    public Vector3 playerSartPos;
+	public enum pole{puste,wrog,gracz};
 	public Mapa[,] map;
 
 	public class Mapa{
@@ -23,54 +21,55 @@ public class GeratorMapy : MonoBehaviour {
 		}
 	}
 
-	void Start () {
-        Generuj();
-	}
-
-    void Generuj()
+    void Start()
     {
-		map = new Mapa[rozmiarX, rozmiarY];
+        Wez();
+    }
 
-        Vector3 pos = Vector3.zero;
+    void Wez()
+    {
+        map = new Mapa[rozmiarX, rozmiarY];
+        Vector3 pos = startPos;
 
-		for (int i = 0; i < rozmiarY; i++)
+        for (int i = 0; i < rozmiarY; i++)
         {
-			for (int j = 0; j < rozmiarX; j++)
+            for (int j = 0; j < rozmiarX; j++)
             {
-				var temp = Instantiate (komorka, pos, Quaternion.identity);
-				temp.SetParent(rodzic);
-				map [i, j] = new Mapa (pole.wolne, pos);
-                pos.x += komorka.transform.lossyScale.x;
+                map[j, i] = new Mapa(pole.puste, pos);
+                pos.x += 1;
             }
-            pos.z += komorka.transform.lossyScale.y;
-            pos.x = pos.x - 9;
+            pos.x = startPos.x;
+            pos.z += 1;
         }
-		GameObject.FindGameObjectWithTag("Player").GetComponent<Character>().PojawGracza(map[graczX,graczY].pos);
-		map [graczX, graczY]._pole = pole.gracz;
-		mapaWygerowana = true;
+        Znajdz(playerSartPos)._pole = pole.gracz;
+
+        foreach (var item in GameObject.FindGameObjectsWithTag("Enemy"))
+        {
+            Znajdz(new Vector3(item.transform.position.x, 0f, item.transform.position.z));
+        }
 
     }
 
-	public Mapa Poszukaj(pole szukane){
-		foreach (var item in map) {
-			if (item._pole == szukane) {
-				return item;
-			}
-		}
-		return null;
+    public Mapa Znajdz(Vector3 pos)
+    {
+        foreach (var item in map)
+        {
+            if (Vector3.Distance(pos, item.pos) < 1f)
+                return item;
+        }
+        return null;
+    }
 
-	}
+    public Mapa Znajdz(pole p)
+    {
+        foreach (var item in map)
+        {
+            if (p == item._pole)
+                return item;
+        }
 
-	public Mapa PoszukajPoPozycji(Vector3 pos){
-		foreach (var item in map) {
-			if (item.pos.x == pos.x && item.pos.z == item.pos.z) {
-					print (item.pos);
-					return item;
-				}
-			}
-			return null;
-		}
-		
-	}
+        return null;
+    }
+}
 
 

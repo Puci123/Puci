@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class GameControler : MonoBehaviour {
 
+    public int iloscPrzecownikow;
     public int hp;
     public int maxHp;
     public int punktyNagrzania;
@@ -13,6 +14,7 @@ public class GameControler : MonoBehaviour {
     public Text hpText;
     public Transform gui;
     public Transform gameOverC;
+    public Transform gameWinC;
     public Upusc upusc;
     public StworzTalie talia;
 
@@ -20,7 +22,16 @@ public class GameControler : MonoBehaviour {
     {
         termoetr.text = "" + punktyNagrzania + " / " + maxPunktyNagrzania;
         hpText.text = "HP " + hp + " / " + maxHp;
+        Zmienne.pToWin = iloscPrzecownikow;
 
+    }
+
+    void Update()
+    {
+        if (Zmienne.pToWin <= 0) {
+            gameWinC.gameObject.SetActive(true);
+            gui.gameObject.SetActive(false);
+                }
     }
 
     public void Pas()
@@ -35,8 +46,16 @@ public class GameControler : MonoBehaviour {
             else
                 ZminenNagrzanie(-punktyNagrzania);
 
-			Zmienne.turaPrzeciwnika = !Zmienne.turaPrzeciwnika;
+            Zmienne.turaPrzeciwnika = true;
+            Zmienne.wyswietlam =  true;
+            GameObject.FindGameObjectWithTag("MainCamera").GetComponent<KontrolerPrzeciwnikow>().RozpoczęcieTury();
         }
+    }
+
+    public void PasPrzeciwnika()
+    {
+        Zmienne.turaPrzeciwnika = false;
+        Zmienne.wyswietlam = false;
     }
 
     public void ZminenNagrzanie(int ile)
@@ -54,6 +73,13 @@ public class GameControler : MonoBehaviour {
         if (hp < maxHp)
             hp++;
         hpText.text = "HP " + hp + " / " + maxHp;
+    }
+    public void ZadajObrażenia(int ile)
+    {
+        hp -= ile;
+        hpText.text = "HP " + hp + " / " + maxHp;
+        if (hp < 1)
+            KoniecGry();
     }
 
     void KoniecGry()

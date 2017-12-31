@@ -27,7 +27,7 @@ public class KomorkaAtak : PodstawowaKomorka {
     }
     private void OnMouseDown()
     {
-        other.GetComponent<Przeciwnik>().PryjmijObrażenia(1);
+        other.GetComponent<Przeciwnik>().PryjmijObrażenia(2);
         tran_.GetComponent<Atak>().Schowaj();
     }
 
